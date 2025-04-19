@@ -11,7 +11,7 @@ export default defineConfig({
     tsconfigPaths(),
     million.vite({
       auto: true,
-      hmr: import.meta.env.NODE_ENV === "developement",
+      hmr: process.env.NODE_ENV === "developement",
       rsc: true,
       mode: "react",
       server: true

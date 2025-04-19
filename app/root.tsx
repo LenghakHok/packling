@@ -3,6 +3,7 @@ import "./app.css";
 import {
   Links,
   Meta,
+  type MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -11,7 +12,6 @@ import {
 
 import type { Route } from "./+types/root";
 
-import { Particles } from "./components/magic/particle";
 import { Providers } from "./components/providers";
 import { H1, P } from "./components/ui/typography";
 
@@ -25,6 +25,16 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Recursive:wght@300..1000&display=swap"
+  },
+  {
+    rel: "icon",
+    href: "/logo.svg"
+  }
+];
+
+export const meta: Route.MetaFunction = () => [
+  {
+    title: import.meta.env.APP_NAME
   }
 ];
 
@@ -32,7 +42,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>{import.meta.env.APP_NAME}</title>
         <meta charSet="utf-8" />
         <meta
           name="viewport"

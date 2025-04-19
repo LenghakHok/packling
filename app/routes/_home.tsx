@@ -1,12 +1,12 @@
 import { Outlet } from "react-router";
-import { Navigations } from "~/components/core/nav";
+import { Navigation } from "~/components/core/navigation";
 import { Particles } from "~/components/magic/particle";
 
 export default function HomeLayout() {
   return (
     <section className="container relative flex size-full min-h-screen min-w-screen flex-col items-center p-6">
       <div className="relative z-10 flex size-full flex-col items-center">
-        <Navigations />
+        <Navigation />
         <Outlet />
       </div>
       <Particles

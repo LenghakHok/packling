@@ -150,7 +150,11 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    @apply size-full min-h-dvh min-w-dvw;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground relative;
   }
 }

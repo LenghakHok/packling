@@ -1,3 +1,5 @@
+import "./app.css";
+
 import {
   Links,
   Meta,
@@ -8,7 +10,8 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
+
+import { Particles } from "./components/magic/particle";
 import { Providers } from "./components/providers";
 import { H1, P } from "./components/ui/typography";
 
@@ -72,7 +75,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="p-4 container mx-auto flex flex-col justify-center items-center">
+    <main className="container mx-auto flex flex-col items-center justify-center p-4">
       <H1>{message}</H1>
       <P>{details}</P>
     </main>

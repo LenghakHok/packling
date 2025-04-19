@@ -1,18 +1,19 @@
+import type { User } from "better-auth";
 import type { ComponentPropsWithRef } from "react";
 import { Link } from "react-router";
 
-import { PlusIcon } from "lucide-react";
 import { Logo } from "~/components/core/logo";
 import { GithubIcon } from "~/components/icons/github";
-import { Button, buttonVariants } from "~/components/ui/button";
+import { buttonVariants } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
-
 import { cn } from "~/lib/cn";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
-export function Navigation({
-  className,
-  ...props
-}: ComponentPropsWithRef<"nav">) {
+interface Props extends ComponentPropsWithRef<"nav"> {
+  user: User | undefined;
+}
+
+export function Navigation({ className, user, ...props }: Props) {
   return (
     <nav
       {...props}
@@ -24,7 +25,7 @@ export function Navigation({
         <Logo className="mx-4 size-6 rounded-none" />
       </div>
 
-      <div className="mr-2 flex h-full items-center justify-center gap-2">
+      <div className="mr-2 flex h-full items-center justify-center">
         <Link
           to="https://github.com/LenghakHok/packling"
           about="_blank"
@@ -37,15 +38,17 @@ export function Navigation({
         </Link>
         <Separator
           orientation="vertical"
-          className="max-h-4 w-1"
+          className="mx-4 max-h-4 w-1"
         />
 
-        <Button
-          className="rounded-full"
-          size="sm">
-          <PlusIcon className="size-4" />
-          <span>Add more</span>
-        </Button>
+        {user?.id ? (
+          <Avatar>
+            <AvatarImage src={user.image ?? ""} />
+            <AvatarFallback>{user.name[0]}</AvatarFallback>
+          </Avatar>
+        ) : (
+          <Link to={"/auth"}>Sign In</Link>
+        )}
       </div>
     </nav>
   );

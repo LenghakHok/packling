@@ -7,7 +7,7 @@ import { GithubIcon } from "~/components/icons/github";
 import { buttonVariants } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
 import { cn } from "~/lib/cn";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Profile } from "./profile";
 
 interface Props extends ComponentPropsWithRef<"nav"> {
   user: User | undefined;
@@ -31,7 +31,7 @@ export function Navigation({ className, user, ...props }: Props) {
           about="_blank"
           className={cn(
             buttonVariants({ size: "icon", variant: "ghost" }),
-            "size-fit rounded-full"
+            "size-fit rounded-full text-sm"
           )}>
           <span className="sr-only">Gihub Repo</span>
           <GithubIcon className="size-5" />
@@ -42,12 +42,16 @@ export function Navigation({ className, user, ...props }: Props) {
         />
 
         {user?.id ? (
-          <Avatar>
-            <AvatarImage src={user.image ?? ""} />
-            <AvatarFallback>{user.name[0]}</AvatarFallback>
-          </Avatar>
+          <Profile user={user} />
         ) : (
-          <Link to={"/auth"}>Sign In</Link>
+          <Link
+            to={"/auth"}
+            className={cn(
+              buttonVariants({ size: "sm", variant: "link" }),
+              "mr-2 p-0"
+            )}>
+            Sign In
+          </Link>
         )}
       </div>
     </nav>

@@ -23,12 +23,13 @@ export function SignInForm({
   });
 
   const handleSubmit = useCallback(async (v: SignInRequest) => {
-    await authClient.signIn.social({ provider: "google" });
+    await authClient.signIn.social({ provider: v.provider });
   }, []);
 
   return (
     <FormProvider {...form}>
       <form
+        {...form}
         onSubmit={form.handleSubmit(handleSubmit)}
         className="space-y-4">
         {OAuth.map((item) => (

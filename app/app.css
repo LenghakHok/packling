@@ -10,14 +10,6 @@
   --font-mono: "JetBrains Mono", "monospace";
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -155,6 +147,6 @@ body {
     @apply size-full min-h-dvh min-w-dvw;
   }
   body {
-    @apply bg-background text-foreground relative;
+    @apply bg-background text-foreground relative flex;
   }
 }

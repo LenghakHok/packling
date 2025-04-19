@@ -3,7 +3,6 @@ import "./app.css";
 import {
   Links,
   Meta,
-  type MetaFunction,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -34,7 +33,7 @@ export const links: Route.LinksFunction = () => [
 
 export const meta: Route.MetaFunction = () => [
   {
-    title: import.meta.env.APP_NAME
+    title: import.meta.env.VITE_PUBLIC_APP_NAME
   }
 ];
 

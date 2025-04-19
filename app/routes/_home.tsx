@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+
 import { Navigation } from "~/components/core/navigation";
 import { Particles } from "~/components/magic/particle";
 

@@ -2,11 +2,12 @@ import type { ComponentPropsWithRef } from "react";
 import { Link } from "react-router";
 
 import { PlusIcon } from "lucide-react";
+import { Logo } from "~/components/core/logo";
 import { GithubIcon } from "~/components/icons/github";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { Separator } from "~/components/ui/separator";
+
 import { cn } from "~/lib/cn";
-import { Button, buttonVariants } from "../ui/button";
-import { Logo } from "./logo";
 
 export function Navigation({
   className,
@@ -16,7 +17,7 @@ export function Navigation({
     <nav
       {...props}
       className={cn(
-        "z-10 flex h-12 w-full max-w-lg items-center justify-between rounded-full border bg-card shadow",
+        "sticky top-4 z-10 flex h-12 w-full max-w-lg items-center justify-between rounded-full border bg-card shadow",
         className
       )}>
       <div className="flex items-center">
